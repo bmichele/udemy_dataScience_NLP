@@ -9,7 +9,7 @@ class VectorizerBOW():
         self.method = method
         self.word_to_index = {}
         self.dim = None
-    def fit(self, corpus):
+    def fit(self, corpus: list):
         '''
         Argument must be a list of lists, each sublist corresponding to a tokenized sentence.
         '''
@@ -17,7 +17,7 @@ class VectorizerBOW():
         self.word_to_index = {w: i for i, w in enumerate(_vocab)}
         self.dim = len(self.word_to_index)
         pass
-    def transform(self, corpus):
+    def transform(self, corpus: list) -> np.array:
         _out = []
         for sent in corpus:
             _vec = np.zeros(self.dim, dtype = int)
